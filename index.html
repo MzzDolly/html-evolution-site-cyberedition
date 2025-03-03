@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Evolution - Cyberpunk Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> <!-- Ensures Video & Theme Toggle Work -->
+</head>
+<body>
+
+    <!-- Persistent Video Container (Follows Users Across Pages) -->
+    <div id="video-container">
+        <iframe 
+            id="video-frame"
+            src="https://www.youtube.com/embed/N_Je6J08Ats?autoplay=1&mute=0&loop=1&playlist=N_Je6J08Ats"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+        <div id="video-controls">
+            <button id="pause-video">Pause</button>
+            <button id="mute-video">Mute</button>
+        </div>
+    </div>
+
+    <!-- Navigation Menu (Loads Pages Dynamically) -->
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="html-history.html">Birth of HTML</a></li>
+            <li><a href="html-expansion.html">HTML’s Role in Expansion</a></li>
+            <li><a href="html5.html">HTML5 Revolution</a></li>
+            <li><a href="impact.html">Impact on the Web Today</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+        <button id="theme-toggle" class="neon-btn">Toggle Theme</button> <!-- Restored Toggle Button -->
+    </nav>
+
+    <!-- Main Content Loaded Dynamically -->
+    <main id="content">
+        <header>
+            <h1>Evolving Webscapes</h1>
+            <p class="subtitle">Tracing the Transformative Journey of HTML and the Internet</p>
+        </header>
+
+        <!-- Table of Contents with Tooltips -->
+        <section id="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li>
+                    <a href="html-history.html">
+                        Birth of HTML
+                        <span class="tooltip">Learn how HTML was created by Tim Berners-Lee</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="html-expansion.html">
+                        HTML’s Role in Web Expansion
+                        <span class="tooltip">Discover how HTML evolved and expanded its capabilities</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="html5.html">
+                        HTML5 Revolution
+                        <span class="tooltip">Explore the impact of HTML5 and modern web technologies</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="impact.html">
+                        Impact on the Web Today
+                        <span class="tooltip">See how HTML influences today's web and cybersecurity</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="references.html">
+                        References & Resources
+                        <span class="tooltip">Find sources and additional reading material</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>The World Wide Web has evolved from a simple hypertext system to a complex, modern global network that forms the basis for most digital communication today.</p>
+            <p>This website explores the major milestones marking that evolution, with a special emphasis on Hypertext Markup Language (HTML) as one of the foundational technologies shaping modern web functionality and accessibility.</p>
+            <p>As a student in cybersecurity, preparing to enter this dynamic and ever-evolving field, I find the developments in web technologies both technically fascinating and societally transformative.</p>
+
+            <!-- Black Cat GIF with Cyberpunk Glow -->
+            <div class="image-container">
+                <img src="images/black-cat.gif" alt="Cyberpunk Black Cat" class="responsive-img" id="black-cat-gif">
+                <span class="image-tooltip">A cyberpunk-inspired black cat animation.</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Maya 2025 HTML Evolution Project</p>
+    </footer>
+
+</body>
+</html>

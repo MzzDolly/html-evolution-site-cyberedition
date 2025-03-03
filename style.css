@@ -1,0 +1,328 @@
+/* Cyberpunk Theme with GIF Background */
+body {
+    background: url("images/cyberpunk-background.gif") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Dark Overlay to Improve Readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+/* Navigation Bar - Using Flexbox */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid #ff00ff;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0ff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    margin-left: 20px;
+}
+
+/* Table of Contents - Styled */
+#table-of-contents {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    margin: 20px auto;
+    border-left: 5px solid #ff2079;
+    box-shadow: 0 0 15px #08d9d6;
+    border-radius: 8px;
+    width: 60%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#table-of-contents ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+}
+
+#table-of-contents ul li {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+}
+
+/* Tooltip Styling for Links */
+.tooltip {
+    visibility: hidden;
+    background: rgba(255, 0, 255, 0.8);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 100;
+    font-size: 14px;
+    width: 200px;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show Tooltip on Hover */
+a:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Footer - Ensures It Stays at Bottom */
+footer {
+    background: #0a0a0a;
+    padding: 15px;
+    font-size: 1em;
+    color: #ffce00;
+    text-shadow: 0 0 5px #ffce00;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Main Content Area - Prevents Footer from Floating */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Neon Button */
+.neon-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #0ff;
+    background: black;
+    border: 2px solid #0ff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 10px #0ff, 0 0 40px #0ff;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.neon-btn:hover {
+    background: #0ff;
+    color: black;
+    box-shadow: 0 0 10px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
+}
+
+/* Light Mode Compatibility */
+.light-mode {
+    background-color: white;
+    color: black;
+}
+
+.light-mode nav {
+    background: white;
+    border-bottom: 2px solid black;
+}
+
+.light-mode nav ul li a {
+    color: black;
+}
+
+.light-mode .neon-btn {
+    border-color: black;
+    box-shadow: none;
+}
+
+.light-mode .neon-btn:hover {
+    background: black;
+    color: white;
+}
+
+/* Cyberpunk Glow Effect for All Images */
+.responsive-img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Cyan glow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect - Increase Glow for ALL Images */
+.responsive-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff; /* Neon pink glow */
+}
+
+/* Tooltip for Images */
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container .image-tooltip {
+    visibility: hidden;
+    background: rgba(255, 0, 255, 0.8); /* Neon Pink */
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 100;
+    font-size: 14px;
+    width: 200px;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show Tooltip on Hover */
+.image-container:hover .image-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Floating Video Overlay (Persistent Across Pages) */
+#video-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    height: 200px;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff00ff;
+    padding: 5px;
+}
+
+/* Responsive Video */
+#video-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Video Controls */
+#video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+#video-controls button {
+    background: #0ff;
+    color: black;
+    border: 2px solid #0ff;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+#video-controls button:hover {
+    background: #ff00ff;
+    color: white;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+/* Mobile Optimization */
+@media screen and (max-width: 768px) {
+    body {
+        text-align: left;
+        font-size: 16px;
+    }
+
+    nav, nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #table-of-contents {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .responsive-img {
+        max-width: 95%;
+        height: auto;
+    }
+
+    #video-container {
+        width: 85%;
+        height: 150px;
+        bottom: 5px;
+        right: 5px;
+    }
+
+    #video-controls button {
+        font-size: 12px;
+        padding: 5px;
+    }
+}
