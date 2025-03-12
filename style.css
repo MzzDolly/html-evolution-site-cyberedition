@@ -1,8 +1,8 @@
 /* Cyberpunk Theme with GIF Background */
 body {
-    background: url("cyberpunk-background.gif") no-repeat center center fixed;
+    background: url("images/cyberpunk-background.gif") no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
+    color: #fff; /* Ensures body text is always white */
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin: 0;
@@ -115,7 +115,7 @@ nav ul li a:hover {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s.
 }
 
 /* Show Tooltip on Hover */
@@ -177,7 +177,7 @@ main {
 /* Light Mode Compatibility */
 .light-mode {
     background-color: white;
-    color: black;
+    color: black; /* Sets default text color in light mode for improved readability */
 }
 
 .light-mode nav {
@@ -186,17 +186,23 @@ main {
 }
 
 .light-mode nav ul li a {
-    color: black;
+    color: #000; /* Ensures nav links are black in light mode */
 }
 
 .light-mode .neon-btn {
-    border-color: black;
-    box-shadow: none;
+    color: #fff; /* Ensures button text is white in light mode */
+    border-color: white; /* Optional: changes border color to white for visibility */
 }
 
 .light-mode .neon-btn:hover {
     background: black;
     color: white;
+}
+
+/* Ensures main content text remains white in light mode */
+.light-mode main,
+.light-mode main * {
+    color: #fff !important; /* Force white color for all text inside main */
 }
 
 /* Cyberpunk Glow Effect for All Images */
@@ -229,7 +235,7 @@ main {
     text-align: center;
     padding: 8px;
     border-radius: 5px;
-    position: absolute;
+    position:absolute;
     z-index: 100;
     font-size: 14px;
     width: 200px;
@@ -237,7 +243,7 @@ main {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s.
 }
 
 /* Show Tooltip on Hover */
