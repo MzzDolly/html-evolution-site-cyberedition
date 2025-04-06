@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Evolution Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Persistent Video Container -->
+  <div id="video-container">
+    <iframe 
+      id="video-frame"
+      src="https://www.youtube.com/embed/N_Je6J08Ats?autoplay=1&mute=0&loop=1&playlist=N_Je6J08Ats"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+    <div id="video-controls">
+      <button id="pause-video">Pause</button>
+      <button id="mute-video">Mute</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="html-history.html">Birth of HTML</a></li>
+      <li><a href="html-expansion.html">HTML’s Role in Expansion</a></li>
+      <li><a href="html5.html">HTML5 Revolution</a></li>
+      <li><a href="impact.html">Impact on the Web Today</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+    </ul>
+    <button id="theme-toggle" class="neon-btn">Toggle Theme</button>
+  </nav>
+
+  <!-- Main Quiz Content -->
+  <main>
+    <header>
+      <h1>Self-Assessment Quiz</h1>
+      <p class="subtitle">Test your knowledge of HTML and the evolution of the web!</p>
+    </header>
+
+    <section id="quiz-container">
+      <form id="quiz-form">
+
+        <!-- Question 1 -->
+        <div class="quiz-question">
+          <p>1. What was the original purpose of the World Wide Web when Tim Berners-Lee created it?</p>
+          <label><input type="radio" name="q1" value="a"> A) Social networking</label><br>
+          <label><input type="radio" name="q1" value="b"> B) Sharing hypertext among researchers</label><br>
+          <label><input type="radio" name="q1" value="c"> C) Online shopping</label><br>
+          <label><input type="radio" name="q1" value="d"> D) Multimedia streaming</label>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question">
+          <p>2. Which version of HTML introduced semantic elements like &lt;article&gt; and &lt;section&gt;?</p>
+          <label><input type="radio" name="q2" value="a"> A) HTML 4.01</label><br>
+          <label><input type="radio" name="q2" value="b"> B) HTML3</label><br>
+          <label><input type="radio" name="q2" value="c"> C) HTML5</label><br>
+          <label><input type="radio" name="q2" value="d"> D) XHTML</label>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question">
+          <p>3. What is one major benefit of HTML5's APIs?</p>
+          <label><input type="radio" name="q3" value="a"> A) They require Flash to run multimedia</label><br>
+          <label><input type="radio" name="q3" value="b"> B) They allow websites to function offline</label><br>
+          <label><input type="radio" name="q3" value="c"> C) They slow down mobile web performance</label><br>
+          <label><input type="radio" name="q3" value="d"> D) They prevent search engines from indexing content</label>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question">
+          <p>4. Fill in the blank: The first web browser, which also served as an editor, was created by __________.</p>
+          <input type="text" name="q4" placeholder="Your answer here" />
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-question">
+          <p>5. Which of the following are semantic HTML elements introduced to improve accessibility and structure? (Select all that apply)</p>
+          <label><input type="checkbox" name="q5" value="a"> A) &lt;div&gt;</label><br>
+          <label><input type="checkbox" name="q5" value="b"> B) &lt;article&gt;</label><br>
+          <label><input type="checkbox" name="q5" value="c"> C) &lt;section&gt;</label><br>
+          <label><input type="checkbox" name="q5" value="d"> D) &lt;span&gt;</label><br>
+          <label><input type="checkbox" name="q5" value="e"> E) &lt;header&gt;</label>
+        </div>
+
+        <!-- Buttons -->
+        <div class="quiz-actions">
+          <button type="submit" class="neon-btn">Submit Quiz</button>
+          <button type="reset" id="reset-quiz" class="neon-btn">Restart</button>
+        </div>
+      </form>
+
+      <div id="quiz-result" style="margin-top: 30px;"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Maya 2025 HTML Evolution Project</p>
+  </footer>
+
+  <!-- 🎉 Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
