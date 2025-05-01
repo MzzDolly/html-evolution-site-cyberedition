@@ -44,9 +44,13 @@
       <p class="subtitle">Test your knowledge of HTML and the evolution of the web!</p>
     </header>
 
-    <section id="quiz-container">
-      <!-- JavaScript will inject quiz content here -->
+    <!-- Quiz Section Injected Dynamically -->
+    <section id="quiz-container" role="form" aria-label="HTML Evolution Quiz">
+      <!-- JavaScript will inject the quiz here -->
     </section>
+
+    <!-- ARIA live region for feedback updates -->
+    <div id="aria-feedback" aria-live="polite" style="position: absolute; left: -9999px;"></div>
   </main>
 
   <!-- Footer -->
