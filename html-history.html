@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birth of HTML</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- Ensures Video & Theme Toggle Work -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-
     <!-- Navigation Menu -->
-    <nav>
+    <nav aria-label="Main navigation">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="html-expansion.html">HTML’s Role in Expansion</a></li>
@@ -20,26 +19,25 @@
             <li><a href="references.html">References</a></li>
             <li><a href="quiz.html">Quiz</a></li>
         </ul>
-        <button id="theme-toggle" class="neon-btn">Toggle Theme</button> <!-- Toggle Theme Button -->
+        <button id="theme-toggle" class="neon-btn">Toggle Theme</button>
     </nav>
 
-    <!-- Dynamic Content Loading -->
+    <!-- Main Content Area -->
     <main id="content">
         <header>
             <h1>Birth of HTML</h1>
             <p class="subtitle">How HTML Became the Foundation of the Web</p>
         </header>
 
-        <!-- Content Section -->
-        <section>
-            <h2>Tim Berners-Lee and the Birth of the Web</h2>
+        <!-- Accessible Section -->
+        <section id="origin-html" aria-labelledby="origin-title">
+            <h2 id="origin-title">Tim Berners-Lee and the Birth of the Web</h2>
             <p>The World Wide Web was conceived by Tim Berners-Lee at CERN in the late 1980s as a way to facilitate information sharing among researchers through interconnected texts, also known as hypertext.</p>
             <p>By 1990, Berners-Lee had developed the first web browser, which also functioned as an editor. However, to properly structure and display web content, he needed a markup language that could define text hierarchy, links, and multimedia integration.</p>
             <p>Thus, HTML (Hypertext Markup Language) was created as a solution—enabling developers to structure text, embed multimedia, and link resources together, ultimately enhancing the interactivity of the web.</p>
 
-            <!-- Image of Tim Berners-Lee with Neon Glow and Tooltip -->
             <div class="image-container">
-                <img src="tim-berners-lee.jpg" alt="Tim Berners-Lee - Creator of the Web" class="responsive-img" id="tim-berners-img">
+                <img src="images/tim-berners-lee.jpg" alt="Tim Berners-Lee - Creator of the Web" class="responsive-img" id="tim-berners-img">
                 <span class="image-tooltip">Tim Berners-Lee, the inventor of HTML, revolutionized digital communication.</span>
             </div>
         </section>
