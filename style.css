@@ -2,7 +2,7 @@
 body {
     background: url("cyberpunk-background.gif") no-repeat center center fixed;
     background-size: cover;
-    color: #fff; /* Ensures body text is always white */
+    color: #fff;
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     margin: 0;
@@ -10,9 +10,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    z-index: 0;
 }
 
-/* Dark Overlay to Improve Readability */
 body::before {
     content: "";
     position: fixed;
@@ -24,7 +24,6 @@ body::before {
     z-index: -1;
 }
 
-/* Navigation Bar - Using Flexbox */
 nav {
     display: flex;
     justify-content: center;
@@ -64,12 +63,10 @@ nav ul li a:hover {
     text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
 }
 
-/* Theme Toggle Button */
 #theme-toggle {
     margin-left: 20px;
 }
 
-/* Table of Contents - Styled */
 #table-of-contents {
     background: rgba(0, 0, 0, 0.8);
     padding: 20px;
@@ -99,7 +96,6 @@ nav ul li a:hover {
     position: relative;
 }
 
-/* Tooltip Styling for Links */
 .tooltip {
     visibility: hidden;
     background: rgba(255, 0, 255, 0.8);
@@ -115,16 +111,14 @@ nav ul li a:hover {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s.
+    transition: opacity 0.3s;
 }
 
-/* Show Tooltip on Hover */
 a:hover .tooltip {
     visibility: visible;
     opacity: 1;
 }
 
-/* Footer - Ensures It Stays at Bottom */
 footer {
     background: #0a0a0a;
     padding: 15px;
@@ -136,7 +130,6 @@ footer {
     margin-top: auto;
 }
 
-/* Main Content Area - Prevents Footer from Floating */
 main {
     flex: 1;
     display: flex;
@@ -144,14 +137,12 @@ main {
     align-items: center;
 }
 
-/* Theme Toggle Button */
 .theme-toggle-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-/* Neon Button */
 .neon-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -174,10 +165,9 @@ main {
     box-shadow: 0 0 10px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff;
 }
 
-/* Light Mode Compatibility */
 .light-mode {
     background-color: white;
-    color: black; /* Sets default text color in light mode for improved readability */
+    color: black;
 }
 
 .light-mode nav {
@@ -186,12 +176,12 @@ main {
 }
 
 .light-mode nav ul li a {
-    color: #000; /* Ensures nav links are black in light mode */
+    color: #000;
 }
 
 .light-mode .neon-btn {
-    color: #fff; /* Ensures button text is white in light mode */
-    border-color: white; /* Optional: changes border color to white for visibility */
+    color: #fff;
+    border-color: white;
 }
 
 .light-mode .neon-btn:hover {
@@ -199,30 +189,26 @@ main {
     color: white;
 }
 
-/* Ensures main content text remains white in light mode */
 .light-mode main,
 .light-mode main * {
-    color: #fff !important; /* Force white color for all text inside main */
+    color: #fff !important;
 }
 
-/* Cyberpunk Glow Effect for All Images */
 .responsive-img {
     max-width: 80%;
     height: auto;
     display: block;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Cyan glow */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Hover Effect - Increase Glow for ALL Images */
 .responsive-img:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff; /* Neon pink glow */
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
 }
 
-/* Tooltip for Images */
 .image-container {
     position: relative;
     display: inline-block;
@@ -230,12 +216,12 @@ main {
 
 .image-container .image-tooltip {
     visibility: hidden;
-    background: rgba(255, 0, 255, 0.8); /* Neon Pink */
+    background: rgba(255, 0, 255, 0.8);
     color: white;
     text-align: center;
     padding: 8px;
     border-radius: 5px;
-    position:absolute;
+    position: absolute;
     z-index: 100;
     font-size: 14px;
     width: 200px;
@@ -243,16 +229,14 @@ main {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    transition: opacity 0.3s.
+    transition: opacity 0.3s;
 }
 
-/* Show Tooltip on Hover */
 .image-container:hover .image-tooltip {
     visibility: visible;
     opacity: 1;
 }
 
-/* Floating Video Overlay (Persistent Across Pages) */
 #video-container {
     position: fixed;
     bottom: 10px;
@@ -266,14 +250,12 @@ main {
     padding: 5px;
 }
 
-/* Responsive Video */
 #video-container iframe {
     width: 100%;
     height: 100%;
     border-radius: 10px;
 }
 
-/* Video Controls */
 #video-controls {
     display: flex;
     justify-content: center;
@@ -297,7 +279,6 @@ main {
     box-shadow: 0 0 10px #ff00ff;
 }
 
-/* Mobile Optimization */
 @media screen and (max-width: 768px) {
     body {
         text-align: left;
@@ -330,5 +311,108 @@ main {
     #video-controls button {
         font-size: 12px;
         padding: 5px;
+    }
+}
+
+/* === DYNAMIC QUIZ STYLING === */
+.quiz-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    margin-top: 40px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #0ff, 0 0 30px #ff00ff;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.question-text {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.quiz-option {
+    display: block;
+    margin: 12px auto;
+    padding: 10px 15px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid #0ff;
+    border-radius: 8px;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 1em;
+}
+
+.quiz-option:hover {
+    background: #0ff;
+    color: black;
+    box-shadow: 0 0 10px #0ff;
+}
+
+.quiz-option input {
+    margin-right: 10px;
+    accent-color: #ff00ff;
+    transform: scale(1.2);
+}
+
+.quiz-input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 2px solid #0ff;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: 0 0 10px #0ff;
+}
+
+.quiz-input::placeholder {
+    color: #ccc;
+}
+
+.result-box {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 20px #0ff, 0 0 60px #ff00ff;
+    animation: pulseFade 1s ease-in-out;
+}
+
+.result-box.pass {
+    border: 2px solid #00ffcc;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+}
+
+.result-box.fail {
+    border: 2px solid #ff0033;
+    box-shadow: 0 0 15px #ff0033, 0 0 30px #ff0033;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
