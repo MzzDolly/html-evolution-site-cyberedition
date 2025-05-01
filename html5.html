@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birth of HTML</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Revolution</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Navigation Menu -->
-    <nav aria-label="Main navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="html-expansion.html">HTML’s Role in Expansion</a></li>
-            <li><a href="html5.html">HTML5 Revolution</a></li>
-            <li><a href="impact.html">Impact on the Web Today</a></li>
-            <li><a href="references.html">References</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-        </ul>
-        <button id="theme-toggle" class="neon-btn">Toggle Theme</button>
-    </nav>
+  <!-- Persistent Video Container -->
+  <div id="video-container">
+    <iframe 
+      id="video-frame"
+      src="https://www.youtube.com/embed/N_Je6J08Ats?autoplay=1&mute=0&loop=1&playlist=N_Je6J08Ats"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+    <div id="video-controls">
+      <button id="pause-video">Pause</button>
+      <button id="mute-video">Mute</button>
+    </div>
+  </div>
 
-    <!-- Main Content Area -->
-    <main id="content">
-        <header>
-            <h1>Birth of HTML</h1>
-            <p class="subtitle">How HTML Became the Foundation of the Web</p>
-        </header>
+  <!-- Navigation Menu -->
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="html-history.html">Birth of HTML</a></li>
+      <li><a href="html-expansion.html">HTML’s Role in Expansion</a></li>
+      <li><a href="html5.html">HTML5 Revolution</a></li>
+      <li><a href="impact.html">Impact on the Web Today</a></li>
+      <li><a href="references.html">References</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+    </ul>
+    <button id="theme-toggle" class="neon-btn">Toggle Theme</button>
+  </nav>
 
-        <!-- Accessible Section -->
-        <section id="origin-html" aria-labelledby="origin-title">
-            <h2 id="origin-title">Tim Berners-Lee and the Birth of the Web</h2>
-            <p>The World Wide Web was conceived by Tim Berners-Lee at CERN in the late 1980s as a way to facilitate information sharing among researchers through interconnected texts, also known as hypertext.</p>
-            <p>By 1990, Berners-Lee had developed the first web browser, which also functioned as an editor. However, to properly structure and display web content, he needed a markup language that could define text hierarchy, links, and multimedia integration.</p>
-            <p>Thus, HTML (Hypertext Markup Language) was created as a solution—enabling developers to structure text, embed multimedia, and link resources together, ultimately enhancing the interactivity of the web.</p>
+  <!-- Main Content -->
+  <main id="content">
+    <header>
+      <h1>HTML5: Revolutionizing the Web</h1>
+      <p class="subtitle">The Evolution of Web Standards</p>
+    </header>
 
-            <div class="image-container">
-                <img src="images/tim-berners-lee.jpg" alt="Tim Berners-Lee - Creator of the Web" class="responsive-img" id="tim-berners-img">
-                <span class="image-tooltip">Tim Berners-Lee, the inventor of HTML, revolutionized digital communication.</span>
-            </div>
-        </section>
-    </main>
+    <section>
+      <h2>Overview of HTML5 Enhancements</h2>
+      <p>HTML5 represented a major leap forward, introducing cleaner, more semantic code and powerful features tailored for today's multimedia and app-driven internet. It has become essential for responsive and secure web development.</p>
 
-    <!-- Footer -->
-    <footer>
-        <p>© Maya 2025 HTML Evolution Project</p>
-    </footer>
+      <ul style="text-align: left; max-width: 800px; margin: auto;">
+        <li><strong>Semantic Elements:</strong> Tags like <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;header&gt;</code>, and <code>&lt;footer&gt;</code> help structure content more meaningfully.</li>
+        <li><strong>Multimedia Support:</strong> Built-in <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code> tags eliminate the need for plugins like Flash.</li>
+        <li><strong>Offline Capabilities:</strong> The Application Cache and Service Workers allow sites to load without internet access.</li>
+        <li><strong>Cross-Device Compatibility:</strong> HTML5 was built with mobile and tablet compatibility in mind.</li>
+        <li><strong>Security Improvements:</strong> Sandboxing and secure API support help prevent malicious behavior in iframes and forms.</li>
+      </ul>
+
+      <!-- Image -->
+      <div class="image-container">
+        <img src="images/html5-capability.png" alt="HTML5 Capabilities: Features of the Next Web Standard" class="responsive-img">
+        <span class="image-tooltip">HTML5 introduced multimedia, gaming, video, and interactive features without plugins.</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© Maya 2025 HTML Evolution Project</p>
+  </footer>
 
 </body>
 </html>
