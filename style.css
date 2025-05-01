@@ -273,6 +273,16 @@ main {
     box-shadow: 0 0 15px #ff0033, 0 0 30px #ff0033;
 }
 
+/* === Make ToC Links White Only on Index Page === */
+#index-page #table-of-contents a {
+    color: white !important;
+}
+
+#index-page #table-of-contents a:hover {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
