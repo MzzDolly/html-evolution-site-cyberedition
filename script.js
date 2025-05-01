@@ -1,182 +1,188 @@
-// Toggle between light and dark mode
+// === Theme + Video Control ===
 function toggleTheme() {
     document.body.classList.toggle("light-mode");
-
-    // Save preference
-    if (document.body.classList.contains("light-mode")) {
-        localStorage.setItem("theme", "light");
-    } else {
-        localStorage.setItem("theme", "dark");
+    localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    // Load Theme
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light-mode");
     }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Apply saved theme
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-        document.body.classList.add("light-mode");
-    }
-
-    // Theme toggle button
+  
     const themeToggleButton = document.getElementById("theme-toggle");
-    if (themeToggleButton) {
-        themeToggleButton.addEventListener("click", toggleTheme);
-    }
-
-    // Load YouTube Iframe API
-    let tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    let firstScriptTag = document.getElementsByTagName("script")[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+    if (themeToggleButton) themeToggleButton.addEventListener("click", toggleTheme);
+  
+    // YouTube Player Setup
     let player;
-
+    const tag = document.createElement("script");
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+  
     window.onYouTubeIframeAPIReady = function () {
-        player = new YT.Player("video-frame", {
-            events: {
-                "onReady": function () {
-                    const isMuted = localStorage.getItem("videoMuted") === "true";
-                    const isPaused = localStorage.getItem("videoPaused") === "true";
-
-                    if (isMuted) {
-                        player.mute();
-                        document.getElementById("mute-video").textContent = "Unmute";
-                    }
-
-                    if (isPaused) {
-                        player.pauseVideo();
-                        document.getElementById("pause-video").textContent = "Play";
-                    }
-                }
+      player = new YT.Player("video-frame", {
+        events: {
+          onReady: () => {
+            if (localStorage.getItem("videoMuted") === "true") {
+              player.mute();
+              document.getElementById("mute-video").textContent = "Unmute";
             }
-        });
+            if (localStorage.getItem("videoPaused") === "true") {
+              player.pauseVideo();
+              document.getElementById("pause-video").textContent = "Play";
+            }
+          }
+        }
+      });
     };
-
+  
     const pauseButton = document.getElementById("pause-video");
     const muteButton = document.getElementById("mute-video");
-
+  
     if (pauseButton && muteButton) {
-        pauseButton.addEventListener("click", function () {
-            if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-                player.pauseVideo();
-                pauseButton.textContent = "Play";
-                localStorage.setItem("videoPaused", "true");
-            } else {
-                player.playVideo();
-                pauseButton.textContent = "Pause";
-                localStorage.setItem("videoPaused", "false");
-            }
-        });
-
-        muteButton.addEventListener("click", function () {
-            if (player.isMuted()) {
-                player.unMute();
-                muteButton.textContent = "Mute";
-                localStorage.setItem("videoMuted", "false");
-            } else {
-                player.mute();
-                muteButton.textContent = "Unmute";
-                localStorage.setItem("videoMuted", "true");
-            }
-        });
-    }
-
-    // ========================
-    // QUIZ LOGIC
-    // ========================
-    const quizForm = document.getElementById("quiz-form");
-
-    if (quizForm) {
-        quizForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            let score = 0;
-            let total = 5;
-            let feedback = [];
-
-            // Q1
-            const q1 = quizForm.q1.value;
-            if (q1 === "b") {
-                score++;
-                feedback.push("✅ Q1: Correct!");
-            } else {
-                feedback.push("❌ Q1: The correct answer is 'Sharing hypertext among researchers'.");
-            }
-
-            // Q2
-            const q2 = quizForm.q2.value;
-            if (q2 === "c") {
-                score++;
-                feedback.push("✅ Q2: Correct!");
-            } else {
-                feedback.push("❌ Q2: The correct answer is 'HTML5'.");
-            }
-
-            // Q3
-            const q3 = quizForm.q3.value;
-            if (q3 === "b") {
-                score++;
-                feedback.push("✅ Q3: Correct!");
-            } else {
-                feedback.push("❌ Q3: The correct answer is 'They allow websites to function offline'.");
-            }
-
-            // Q4
-            const q4 = quizForm.q4.value.trim().toLowerCase();
-            if (q4 === "tim berners lee" || q4 === "berners lee") {
-                score++;
-                feedback.push("✅ Q4: Correct!");
-            } else {
-                feedback.push("❌ Q4: The correct answer is 'Tim Berners Lee'.");
-            }
-
-            // Q5 (multi-select)
-            const q5Correct = ["b", "c", "e"];
-            const q5Checked = [...quizForm.querySelectorAll("input[name='q5']:checked")].map(i => i.value);
-            const isQ5Correct = q5Checked.length === q5Correct.length && q5Correct.every(val => q5Checked.includes(val));
-
-            if (isQ5Correct) {
-                score++;
-                feedback.push("✅ Q5: Correct!");
-            } else {
-                feedback.push("❌ Q5: Correct answers are 'article', 'section', and 'header'.");
-            }
-
-            // Show Results
-            const resultDiv = document.getElementById("quiz-result");
-            const passed = score >= 4;
-
-            resultDiv.innerHTML = `
-              <div class="result-box ${passed ? "pass" : "fail"}">
-                <h2>Quiz Results</h2>
-                <p><strong>Total Score:</strong> ${score} / ${total}</p>
-                <p><strong>Status:</strong> ${passed ? "✅ <span style='color:#00ffcc;'>Pass</span>" : "❌ <span style='color:#ff0033;'>Fail</span>"}</p>
-                <ul style="text-align: left; margin-top: 15px;">
-                  ${feedback.map(msg => `<li>${msg}</li>`).join("")}
-                </ul>
-              </div>
-            `;
-
-            // 🎉 Confetti on pass
-            if (passed && typeof confetti === "function") {
-                confetti({
-                    particleCount: 150,
-                    spread: 90,
-                    origin: { y: 0.6 },
-                    colors: ["#00ffff", "#ff00ff", "#ffff00", "#00ffcc"]
-                });
-            }
-        });
-
-        // Clear results on Restart
-        const resetButton = document.getElementById("reset-quiz");
-        if (resetButton) {
-            resetButton.addEventListener("click", function () {
-                const resultDiv = document.getElementById("quiz-result");
-                if (resultDiv) {
-                    resultDiv.innerHTML = "";
-                }
-            });
+      pauseButton.addEventListener("click", () => {
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+          player.pauseVideo();
+          pauseButton.textContent = "Play";
+          localStorage.setItem("videoPaused", "true");
+        } else {
+          player.playVideo();
+          pauseButton.textContent = "Pause";
+          localStorage.setItem("videoPaused", "false");
         }
+      });
+  
+      muteButton.addEventListener("click", () => {
+        if (player.isMuted()) {
+          player.unMute();
+          muteButton.textContent = "Mute";
+          localStorage.setItem("videoMuted", "false");
+        } else {
+          player.mute();
+          muteButton.textContent = "Unmute";
+          localStorage.setItem("videoMuted", "true");
+        }
+      });
     }
-});
+  
+    // === Dynamic Quiz Engine ===
+    const quizData = [
+      {
+        question: "What was the original purpose of the World Wide Web when Tim Berners-Lee created it?",
+        options: ["Social networking", "Sharing hypertext among researchers", "Online shopping", "Multimedia streaming"],
+        answer: "Sharing hypertext among researchers"
+      },
+      {
+        question: "Which version of HTML introduced semantic elements like <article> and <section>?",
+        options: ["HTML 4.01", "HTML3", "HTML5", "XHTML"],
+        answer: "HTML5"
+      },
+      {
+        question: "What is one major benefit of HTML5's APIs?",
+        options: ["They require Flash to run multimedia", "They allow websites to function offline", "They slow down mobile web performance", "They prevent search engines from indexing content"],
+        answer: "They allow websites to function offline"
+      },
+      {
+        question: "Fill in the blank: The first web browser, which also served as an editor, was created by ________.",
+        input: true,
+        answer: ["tim berners lee", "berners lee"]
+      },
+      {
+        question: "Which of the following are semantic HTML elements? (Select all that apply)",
+        checkboxes: true,
+        options: [
+          { label: "<div>", value: "div" },
+          { label: "<article>", value: "article" },
+          { label: "<section>", value: "section" },
+          { label: "<span>", value: "span" },
+          { label: "<header>", value: "header" }
+        ],
+        answer: ["article", "section", "header"]
+      }
+    ];
+  
+    let currentIndex = 0;
+    let score = 0;
+  
+    const container = document.getElementById("quiz-container");
+  
+    function renderQuestion() {
+      const q = quizData[currentIndex];
+      container.innerHTML = `
+        <div class="quiz-box">
+          <h2>Question ${currentIndex + 1} of ${quizData.length}</h2>
+          <p class="question-text">${q.question}</p>
+          <form id="question-form">
+            ${q.options ? q.options.map(option => `
+              <label class="quiz-option">
+                <input type="${q.checkboxes ? "checkbox" : "radio"}" name="response" value="${option.value || option}" />
+                ${option.label || option}
+              </label>
+            `).join("") : ""}
+            ${q.input ? `
+              <input type="text" name="textInput" placeholder="Type your answer here" class="quiz-input"/>
+            ` : ""}
+            <button type="submit" class="neon-btn">Next</button>
+          </form>
+          <div id="feedback" style="margin-top: 15px;"></div>
+        </div>
+      `;
+  
+      document.getElementById("question-form").addEventListener("submit", handleSubmit);
+    }
+  
+    function handleSubmit(event) {
+      event.preventDefault();
+      const q = quizData[currentIndex];
+      let userAnswer;
+  
+      if (q.input) {
+        userAnswer = event.target.textInput.value.trim().toLowerCase();
+        if (q.answer.includes(userAnswer)) score++;
+      } else if (q.checkboxes) {
+        const selected = [...event.target.querySelectorAll("input[type='checkbox']:checked")].map(cb => cb.value);
+        const isCorrect = selected.length === q.answer.length && q.answer.every(ans => selected.includes(ans));
+        if (isCorrect) score++;
+      } else {
+        const selected = event.target.querySelector("input[type='radio']:checked");
+        if (!selected) return; // Prevent proceeding without selecting
+        if (selected.value === q.answer) score++;
+      }
+  
+      currentIndex++;
+      if (currentIndex < quizData.length) {
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+  
+    function showResults() {
+      const passed = score >= 4;
+      container.innerHTML = `
+        <div class="result-box ${passed ? "pass" : "fail"}">
+          <h2>Quiz Completed</h2>
+          <p><strong>Your Score:</strong> ${score} / ${quizData.length}</p>
+          <p><strong>Status:</strong> ${passed ? "✅ <span style='color:#00ffcc;'>Pass</span>" : "❌ <span style='color:#ff0033;'>Fail</span>"}</p>
+          <button class="neon-btn" id="restart-btn">Restart Quiz</button>
+        </div>
+      `;
+  
+      if (passed && typeof confetti === "function") {
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.6 },
+          colors: ["#00ffff", "#ff00ff", "#ffff00", "#00ffcc"]
+        });
+      }
+  
+      document.getElementById("restart-btn").addEventListener("click", () => {
+        currentIndex = 0;
+        score = 0;
+        renderQuestion();
+      });
+    }
+  
+    renderQuestion(); // Start the quiz!
+  });
