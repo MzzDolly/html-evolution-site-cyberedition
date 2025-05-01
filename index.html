@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Evolution - Cyberpunk Edition</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script> <!-- Ensures Video & Theme Toggle Work -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Persistent Video Container (Follows Users Across Pages) -->
+    <!-- Persistent Video Container -->
     <div id="video-container">
         <iframe 
             id="video-frame"
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <!-- Navigation Menu (Loads Pages Dynamically) -->
+    <!-- Navigation Menu -->
     <nav aria-label="Main navigation">
         <ul>
             <li><a href="html-history.html">Birth of HTML</a></li>
@@ -34,17 +34,17 @@
             <li><a href="references.html">References</a></li>
             <li><a href="quiz.html">Quiz</a></li>
         </ul>
-        <button id="theme-toggle" class="neon-btn">Toggle Theme</button> <!-- Restored Toggle Button -->
+        <button id="theme-toggle" class="neon-btn">Toggle Theme</button>
     </nav>
 
-    <!-- Main Content Loaded Dynamically -->
+    <!-- Main Content -->
     <main id="content">
         <header>
             <h1>Evolving Webscapes</h1>
             <p class="subtitle">Tracing the Transformative Journey of HTML and the Internet</p>
         </header>
 
-        <!-- Table of Contents with Tooltips -->
+        <!-- Table of Contents -->
         <section id="table-of-contents">
             <h2>Table of Contents</h2>
             <ul>
@@ -81,16 +81,15 @@
             </ul>
         </section>
 
-        <!-- Introduction Section -->
-        <section id="introduction">
-            <h2>Introduction</h2>
+        <!-- Introduction Section with ARIA Enhancement -->
+        <section id="introduction" aria-labelledby="intro-title">
+            <h2 id="intro-title">Introduction</h2>
             <p>The World Wide Web has evolved from a simple hypertext system to a complex, modern global network that forms the basis for most digital communication today.</p>
             <p>This website explores the major milestones marking that evolution, with a special emphasis on Hypertext Markup Language (HTML) as one of the foundational technologies shaping modern web functionality and accessibility.</p>
             <p>As a student in cybersecurity, preparing to enter this dynamic and ever-evolving field, I find the developments in web technologies both technically fascinating and societally transformative.</p>
 
-            <!-- Black Cat GIF with Cyberpunk Glow -->
             <div class="image-container">
-                <img src="black-cat.gif" alt="Cyberpunk Black Cat" class="responsive-img" id="black-cat-gif">
+                <img src="images/black-cat.gif" alt="Cyberpunk Black Cat" class="responsive-img" id="black-cat-gif">
                 <span class="image-tooltip">A cyberpunk-inspired black cat animation.</span>
             </div>
         </section>
